@@ -1,15 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 /*
-Array/Slice operation: Search
+Array operation: Search
 	- Best case: O(log(n)) using Binary search (only if the array is sorted)
 	- Worst case: O(n)
 */
 
 // Find the element by index. If no element found return -1
-func search[T int](a [5]T, n T) int {
+func search[T []E, E comparable](a [5]E, n E) int {
 	for i, v := range a {
 		if v == n {
 			return i
