@@ -9,8 +9,8 @@ func naiveApproach(arr []int) int {
 		temp := 0
 		for j := i; j < len(arr); j++ {
 			temp += arr[j]
+			res = max(res, temp, arr[i])
 		}
-		res = max(res, temp, arr[i])
 	}
 	return res
 }
