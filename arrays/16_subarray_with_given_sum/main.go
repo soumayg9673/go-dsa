@@ -19,6 +19,28 @@ func naiveApproach(arr []int, s int) bool {
 	return false
 }
 
+/*
+Time Complexity: O(n)
+Auxilary Space: O(1)
+*/
+func optimalSolution(arr []int, sum int) bool {
+	temp := 0
+
+	for s, e := 0, 0; s < len(arr) && e < len(arr); {
+		if temp == sum {
+			return true
+		} else if temp > sum {
+			temp -= arr[s]
+			s++
+		} else {
+			temp += arr[e]
+			e++
+		}
+	}
+
+	return false
+}
+
 func main() {
 	data := []struct {
 		l []int
@@ -32,5 +54,10 @@ func main() {
 	fmt.Println("Naive approach")
 	for _, d := range data {
 		fmt.Println(naiveApproach(d.l, d.s))
+	}
+
+	fmt.Println("Optimal approach")
+	for _, d := range data {
+		fmt.Println(optimalSolution(d.l, d.s))
 	}
 }
