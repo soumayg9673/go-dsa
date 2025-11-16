@@ -57,3 +57,15 @@ func TestIterative(t *testing.T) {
 		})
 	}
 }
+
+func TestRecursive(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Slice %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			curr := binarysearch.Recursive(data.list, data.search, 0, len(data.list))
+			if curr != data.expectedIdx {
+				t.Errorf("expected %v but got %v", data.expectedIdx, curr)
+			}
+		})
+	}
+}

@@ -17,3 +17,18 @@ func Iterative(arr []int, s int) int {
 
 	return -1
 }
+
+func Recursive(arr []int, s, low, high int) int {
+	if low >= high {
+		return -1
+	} else {
+		m := (low + high) / 2
+		if arr[m] == s {
+			return m
+		} else if arr[m] > s {
+			return Recursive(arr, s, low, m-1)
+		} else {
+			return Recursive(arr, s, m+1, high)
+		}
+	}
+}
