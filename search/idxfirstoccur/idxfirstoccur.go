@@ -34,7 +34,7 @@ func OptimalApproachRecursive(arr []int, s, low, high int) int {
 // Auxilary Space: O(1)
 func OptimalApproachIterative(arr []int, s int) int {
 	low := 0
-	high := len(arr)
+	high := len(arr) - 1
 	for low <= high {
 		mid := (low + high) / 2
 		if arr[mid] > s {
