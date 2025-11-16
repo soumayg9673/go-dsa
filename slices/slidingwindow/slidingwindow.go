@@ -1,7 +1,6 @@
-package main
+package slidingwindow
 
 import (
-	"fmt"
 	"math"
 )
 
@@ -9,7 +8,7 @@ import (
 Time Complexity: O(nk)
 Auxilary Space: O(1)
 */
-func naiveApproach(arr []int, k int) int {
+func NaiveApproach(arr []int, k int) int {
 	res := math.MinInt
 
 	for i := 0; i < len(arr) && i+k-1 < len(arr); i++ {
@@ -27,7 +26,7 @@ func naiveApproach(arr []int, k int) int {
 Time Complexity: O(n)
 Auxilary Space: O(1)
 */
-func optimalSolution(arr []int, k int) int {
+func OptimalApproach(arr []int, k int) int {
 	res := math.MinInt
 	temp := 0
 
@@ -43,30 +42,4 @@ func optimalSolution(arr []int, k int) int {
 	}
 
 	return res
-}
-
-func main() {
-	data := []struct {
-		l []int
-		k int
-	}{
-		{
-			l: []int{1, 8, 30, -5, 20, 7},
-			k: 3,
-		}, // 45
-		{
-			l: []int{5, -10, 6, 90, 3},
-			k: 2,
-		}, // 96
-	}
-
-	fmt.Println("Naive approach")
-	for _, d := range data {
-		fmt.Println(naiveApproach(d.l, d.k))
-	}
-
-	fmt.Println("Optimal approach")
-	for _, d := range data {
-		fmt.Println(optimalSolution(d.l, d.k))
-	}
 }
