@@ -1,16 +1,12 @@
-package main
-
-import (
-	"fmt"
-)
+package majorityelem
 
 /*
 Time Complexity: O(n^2)
 Auxilary Space: O(1)
 */
-func naiveApproach(arr []int) []int {
-	l := []int{}
+func NaiveApproach(arr []int) []int {
 	for i := range arr {
+		l := []int{}
 		temp := 1
 		l = append(l, i)
 		for j := i + 1; j < len(arr); j++ {
@@ -22,16 +18,15 @@ func naiveApproach(arr []int) []int {
 		if temp > len(arr)/2 {
 			return l
 		}
-		l = []int{}
 	}
-	return l
+	return nil
 }
 
 /*
 Time Complexity: O(n)
 Auxilary Space: O(1)
 */
-func optimalSolution(arr []int) []int {
+func OptimalApproach(arr []int) []int {
 	res := 0
 	count := 1
 
@@ -39,7 +34,7 @@ func optimalSolution(arr []int) []int {
 		if arr[res] == arr[i] {
 			count++
 		} else {
-			count = 0
+			count--
 		}
 
 		if count == 0 {
@@ -60,25 +55,7 @@ func optimalSolution(arr []int) []int {
 
 	if count > len(arr)/2 {
 		return l
-	} else {
-		return []int{}
-	}
-}
-
-func main() {
-	data := [][]int{
-		{8, 3, 4, 8, 8},              // 0 or 3 or 4
-		{3, 7, 4, 7, 7, 5},           // -1
-		{20, 30, 40, 50, 50, 50, 50}, // 3 or 4 or 5 or 6
 	}
 
-	fmt.Println("Naive approach")
-	for _, d := range data {
-		fmt.Println(naiveApproach(d))
-	}
-
-	fmt.Println("Optimal approach")
-	for _, d := range data {
-		fmt.Println(optimalSolution(d))
-	}
+	return nil
 }
