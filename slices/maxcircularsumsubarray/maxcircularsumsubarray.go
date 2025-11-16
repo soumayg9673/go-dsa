@@ -1,51 +1,10 @@
-package main
-
-import (
-	"fmt"
-	"slices"
-)
-
-func rotateArray(arr []int) {
-	n := len(arr)
-	slices.Reverse(arr[:1])
-	slices.Reverse(arr[1:n])
-	slices.Reverse(arr[:n])
-}
-
-func calculateMaxSubArraySum(arr []int) int {
-	n := len(arr)
-	res := arr[0]
-	curr := arr[0]
-
-	for i := 1; i < n; i++ {
-		curr = max(curr+arr[i], arr[i])
-		res = max(res, curr)
-	}
-
-	return res
-}
+package maxcircularsumsubarray
 
 /*
 Time Complexity: O(n^2)
 Auxilary Space: O(1)
 */
-func naiveApproach1(arr []int) int {
-	res := arr[0]
-
-	for range arr {
-		rotateArray(arr)
-		m := calculateMaxSubArraySum(arr)
-		res = max(m, res)
-	}
-
-	return res
-}
-
-/*
-Time Complexity: O(n^2)
-Auxilary Space: O(1)
-*/
-func naiveApproach2(arr []int) int {
+func NaiveApproach(arr []int) int {
 	res := arr[0]
 
 	for i := range arr {
@@ -66,7 +25,7 @@ func naiveApproach2(arr []int) int {
 Time Complexity: Θ(n)
 Auxilary Space: Θ(1)
 */
-func optimalSolution(arr []int) int {
+func OptimalApproach(arr []int) int {
 	resMax := arr[0]
 	currMax := arr[0]
 
@@ -92,6 +51,7 @@ func optimalSolution(arr []int) int {
 	}
 }
 
+/*
 func main() {
 	data := [][]int{
 		{10, 5, -5},          // 15
@@ -119,3 +79,4 @@ func main() {
 		fmt.Println(optimalSolution(d))
 	}
 }
+*/
