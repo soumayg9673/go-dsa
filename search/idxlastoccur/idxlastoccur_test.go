@@ -42,3 +42,27 @@ func TestNaiveApproach(t *testing.T) {
 		})
 	}
 }
+
+func TestOptimalApproachRecursive(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Slice %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			curr := idxlastoccur.OptimalApproachRecursive(data.list, data.search, 0, len(data.list))
+			if curr != data.expectedIdx {
+				t.Errorf("expected %v but got %v", data.expectedIdx, curr)
+			}
+		})
+	}
+}
+
+func TestOptimalApproachIterative(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Slice %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			curr := idxlastoccur.OptimalApproachIterative(data.list, data.search)
+			if curr != data.expectedIdx {
+				t.Errorf("expected %v but got %v", data.expectedIdx, curr)
+			}
+		})
+	}
+}
