@@ -30,3 +30,15 @@ func TestNaiveApproach(t *testing.T) {
 		})
 	}
 }
+
+func TestOptimalSolution(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Array: %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			val := equilibriumpoint.OptimalSolution(data.list)
+			if val != data.expected {
+				t.Errorf("Expected %v but got %v", data.expected, val)
+			}
+		})
+	}
+}
