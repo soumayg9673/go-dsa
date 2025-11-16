@@ -38,3 +38,15 @@ func TestNaiveApproach(t *testing.T) {
 		})
 	}
 }
+
+func TestOptimalApproach(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Slice %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			curr := count1s.OptimalApproach(data.list)
+			if curr != data.expected {
+				t.Errorf("expected %v but got %v", data.expected, curr)
+			}
+		})
+	}
+}
