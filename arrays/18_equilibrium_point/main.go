@@ -39,17 +39,17 @@ func OptimalSolution(arr []int) bool {
 	}
 
 	// Cummulative suffix sum
-	suffixSum := make([]int, n)
-	suffixSum[n-1] = arr[n-1]
-	for i := n - 2; i >= 0; i-- {
-		suffixSum[i] = arr[i] + suffixSum[i+1]
-	}
+	// suffixSum := make([]int, n)
+	// suffixSum[n-1] = arr[n-1]
+	// for i := n - 2; i >= 0; i-- {
+	// 	suffixSum[i] = arr[i] + suffixSum[i+1]
+	// }
 
 	for i := range arr {
 		switch i {
 		case 0:
 			left := 0
-			right := suffixSum[i+1]
+			right := prefixSum[n-1] - prefixSum[i] // suffixSum[i+1]
 			if left == right {
 				return true
 			}
@@ -61,7 +61,7 @@ func OptimalSolution(arr []int) bool {
 			}
 		default:
 			left := prefixSum[i-1]
-			right := suffixSum[i+1]
+			right := prefixSum[n-1] - prefixSum[i] // suffixSum[i+1]
 			if left == right {
 				return true
 			}
