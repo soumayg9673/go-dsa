@@ -1,0 +1,44 @@
+package idxfirstoccur_test
+
+import (
+	"fmt"
+	"testing"
+
+	"github.com/soumayg9673/go-dsa/search/idxfirstoccur"
+)
+
+var (
+	testData = []struct {
+		list        []int
+		search      int
+		expectedIdx int
+	}{
+		{
+			list:        []int{1, 10, 10, 10, 20, 20, 40},
+			search:      20,
+			expectedIdx: 4,
+		},
+		{
+			list:        []int{10, 20, 30},
+			search:      15,
+			expectedIdx: -1,
+		},
+		{
+			list:        []int{15, 15, 15},
+			search:      15,
+			expectedIdx: 0,
+		},
+	}
+)
+
+func TestNaiveApproach(t *testing.T) {
+	for _, data := range testData {
+		name := fmt.Sprintf("Slice %v", data.list)
+		t.Run(name, func(t *testing.T) {
+			curr := idxfirstoccur.NaiveApproach(data.list, data.search)
+			if curr != data.expectedIdx {
+				t.Errorf("expected %v but got %v", data.expectedIdx, curr)
+			}
+		})
+	}
+}
