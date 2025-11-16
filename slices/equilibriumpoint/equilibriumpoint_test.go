@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/soumayg9673/go-dsa/arrays/equilibriumpoint"
+	"github.com/soumayg9673/go-dsa/slices/equilibriumpoint"
 )
 
 var (
