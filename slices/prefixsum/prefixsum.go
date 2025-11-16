@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package prefixsum
 
 type Data struct {
 	List  []int
@@ -14,7 +12,7 @@ type Data struct {
 Time Complexity: O(nm)
 Auxilary Space: O(1)
 */
-func (d Data) naiveApproach() []int {
+func (d Data) NaiveApproach() []int {
 	list := make([]int, 0, len(d.Query))
 	for _, q := range d.Query {
 		sum := 0
@@ -30,7 +28,7 @@ func (d Data) naiveApproach() []int {
 Time Complexity: O(n)
 Auxilary Space: O(n)
 */
-func (d Data) optimalSolution() []int {
+func (d Data) OptimalApproach() []int {
 
 	// Calculate cummulative sum from start
 	leftSum := make([]int, len(d.List))
@@ -49,30 +47,4 @@ func (d Data) optimalSolution() []int {
 	}
 
 	return list
-}
-
-func main() {
-	data := []Data{
-		{
-			List: []int{2, 8, 3, 9, 6, 5, 4},
-			Query: []struct {
-				Start int
-				End   int
-			}{
-				{Start: 0, End: 2},
-				{Start: 1, End: 3},
-				{Start: 2, End: 6},
-			},
-		},
-	}
-
-	fmt.Println("Naive approach")
-	for _, d := range data {
-		fmt.Println(d.naiveApproach())
-	}
-
-	fmt.Println("Optimal approach")
-	for _, d := range data {
-		fmt.Println(d.optimalSolution())
-	}
 }
