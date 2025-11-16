@@ -1,13 +1,11 @@
-package main
-
-import "fmt"
+package longestoddevensubarray
 
 /*
 Algorith: Kadane's algorithm
 =	Time Complexity: O(n)
 -	Auxilary Space: O(1)
 */
-func optimalApproach(arr []int) int {
+func OptimalApproach(arr []int) int {
 	res, temp := 1, 1
 
 	for i := 1; i < len(arr); i++ {
@@ -22,6 +20,7 @@ func optimalApproach(arr []int) int {
 	return res
 }
 
+/*
 func main() {
 	data := [][]int{
 		{10, 12, 14, 7, 8}, // 3
@@ -31,7 +30,8 @@ func main() {
 
 	fmt.Println("Naive approach")
 	for _, d := range data {
-		fmt.Println(optimalApproach(d))
+		fmt.Println(OptimalApproach(d))
 	}
 
 }
+*/
