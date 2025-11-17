@@ -12,3 +12,16 @@ func NaiveApproach(arr []int, s int) bool {
 	}
 	return false
 }
+
+func OptimalApproach(arr []int, s int) bool {
+	for i, j := 0, len(arr)-1; i <= j; {
+		if arr[i]+arr[j] == s {
+			return true
+		} else if arr[i]+arr[j] > s {
+			j--
+		} else {
+			i++
+		}
+	}
+	return false
+}
