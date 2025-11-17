@@ -18,7 +18,7 @@ func NaiveApproach(arr []int, s int) bool {
 // Time Complexity: O(n)
 // Auxilary Space: O(1)
 func OptimalApproach(arr []int, s int) bool {
-	for i, j := 0, len(arr)-1; i <= j; {
+	for i, j := 0, len(arr)-1; i < j; {
 		if arr[i]+arr[j] == s {
 			return true
 		} else if arr[i]+arr[j] > s {

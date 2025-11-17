@@ -1,5 +1,9 @@
 package triplet
 
+import (
+	"github.com/soumayg9673/go-dsa/search/twopointerappr"
+)
+
 // This can be used in increasing sorted arrays.
 // Sort array before using on unsorted array or decreasing sorted arrays.
 
@@ -14,6 +18,16 @@ func NaiveApproach(arr []int, s int) bool {
 					return true
 				}
 			}
+		}
+	}
+	return false
+}
+
+// Time Complexity: O(n^2)
+func OptimalApproach(arr []int, s int) bool {
+	for i := 0; i < len(arr)-2; i++ {
+		if ok := twopointerappr.OptimalApproach(arr[i+1:], s-arr[i]); ok {
+			return true
 		}
 	}
 	return false
