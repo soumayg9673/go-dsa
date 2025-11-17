@@ -1,5 +1,9 @@
 package bubblesort
 
+// Bubble sort is stable algorith
+// Time complexity
+// best case - O(n) for pre-sorted array
+// wors case - O(n^2)
 func BubbleSort(arr []int) []int {
 	swap := true
 	end := len(arr)
