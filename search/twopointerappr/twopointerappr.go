@@ -1,5 +1,7 @@
 package twopointerappr
 
+// This can be used in Increasing Sorted arrays
+
 // Time Complexity: O(n^2)
 // Auxilary Space: O(1)
 func NaiveApproach(arr []int, s int) bool {
@@ -13,6 +15,8 @@ func NaiveApproach(arr []int, s int) bool {
 	return false
 }
 
+// Time Complexity: O(n)
+// Auxilary Space: O(1)
 func OptimalApproach(arr []int, s int) bool {
 	for i, j := 0, len(arr)-1; i <= j; {
 		if arr[i]+arr[j] == s {
