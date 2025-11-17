@@ -2,6 +2,7 @@ package mergesort
 
 // Merge sort is recursive sorting algorithm
 // with divide and conquer algorithm.
+// Also a stable sort.
 
 // Time complexity: O(n log(n))
 // Auxilary space: O(n)

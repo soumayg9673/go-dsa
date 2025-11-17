@@ -1,6 +1,7 @@
 package bubblesort
 
-// Bubble sort is stable algorith
+// Bubble sort
+// Also a stable sort.
 // Time complexity
 // best case - O(n) for pre-sorted array
 // wors case - O(n^2)
